@@ -6,3 +6,4 @@ Processeur : 12th Gen Intel(R) Core(TM) i7-12700 12th Gen Intel(R) Core(TM) i7-1
 RAM (Go) : 4
 Date : 23/10/2025 09:46
 ===========================
+ 
