@@ -1,0 +1,11 @@
+Import-Module ActiveDirectory
+New-ADOrganizationalUnit -Name "CESI_IT" -ProtectedFromAccidentalDeletion $false
+New-ADOrganizationalUnit -Name "CESI_Pedagogie" -ProtectedFromAccidentalDeletion $false
+New-ADOrganizationalUnit -Name "CESI_Securite" -ProtectedFromAccidentalDeletion $false
+
+$pwd = ConvertTo-SecureString "Bachelors2025" -AsPlainText -Force
+
+New-ADUser -Name "Thierry" -SamAccountName "Thierry" -Path "OU=CESI_IT,DC=iticsio2,DC=fr" -AccountPassword $pwd -Enabled $true -PasswordNeverExpires $true
+New-ADUser -Name "Pierre" -SamAccountName "Pierre" -Path "OU=CESI_Pedagogie,DC=iticsio2,DC=fr" -AccountPassword $pwd -Enabled $true -PasswordNeverExpires $true
+New-ADUser -Name "Soli" -SamAccountName "Soli" -Path "OU=CESI_Securite,DC=iticsio2,DC=fr" -AccountPassword $pwd -Enabled $true -PasswordNeverExpires $true
+Get-ADOrganizationalUnit -Filter * -SearchBase "DC=iticsio2,DC=fr" 
