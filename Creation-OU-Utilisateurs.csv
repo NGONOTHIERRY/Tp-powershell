@@ -1,0 +1,48 @@
+# ===========================================
+# Script PowerShell : Création d’unités organisationnelles et d’utilisateurs AD
+# Domaine : iticsio2.fr
+# ===========================================
+
+# Importation du module Active Directory
+Import-Module ActiveDirectory
+
+# ===========================================
+# Création des Unités Organisationnelles (OU)
+# ===========================================
+New-ADOrganizationalUnit -Name "CESI_IT"          -ProtectedFromAccidentalDeletion $false
+New-ADOrganizationalUnit -Name "CESI_Pedagogie"   -ProtectedFromAccidentalDeletion $false
+New-ADOrganizationalUnit -Name "CESI_Securite"    -ProtectedFromAccidentalDeletion $false
+
+# ===========================================
+# Création du mot de passe pour les utilisateurs
+# ===========================================
+= ConvertTo-SecureString "Bachelors2025" -AsPlainText -Force
+
+# ===========================================
+# Création des utilisateurs dans leurs OU respectives
+# ===========================================
+New-ADUser -Name "Thierry" `
+    -SamAccountName "Thierry" `
+    -Path "OU=CESI_IT,DC=iticsio2,DC=fr" `
+    -AccountPassword $pwd `
+    -Enabled $true `
+    -PasswordNeverExpires $true
+
+New-ADUser -Name "Pierre" `
+    -SamAccountName "Pierre" `
+    -Path "OU=CESI_Pedagogie,DC=iticsio2,DC=fr" `
+    -AccountPassword $pwd `
+    -Enabled $true `
+    -PasswordNeverExpires $true
+
+New-ADUser -Name "Soli" `
+    -SamAccountName "Soli" `
+    -Path "OU=CESI_Securite,DC=iticsio2,DC=fr" `
+    -AccountPassword $pwd `
+    -Enabled $true `
+    -PasswordNeverExpires $true
+
+# ===========================================
+# Vérification : Liste des OU créées dans le domaine
+# ===========================================
+Get-ADOrganizationalUnit -Filter * -SearchBase "DC=iticsio2,DC=fr" | Select-Object Name, DistinguishedName
