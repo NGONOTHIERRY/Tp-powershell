@@ -61,6 +61,6 @@ Pour l'installation des rôles nous allons utiliser le script suivant
 Voici le resultat de l'exécution
 ![alt text](image-6.png)
 
-Voici le resultat final, celuyi qui permet à nos utilisateurs de se connecter via le web
+Voici le resultat final, celui qui permet à nos utilisateurs de se connecter via le web
 
 ![alt text](image-7.png)
