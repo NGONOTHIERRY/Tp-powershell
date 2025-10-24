@@ -53,13 +53,14 @@ Cette commande affiche la liste des baux DHCP actifs pour une plage d’adresses
 
 ## 5. Déploiement des Services Bureau à Distance (RDS) 
 
-Pour l'installation des rôles nouis allons utiliser le script suivant 
+Pour l'installation des rôles nous allons utiliser le script suivant 
 
 ![alt text](image-4.png)
 ![alt text](image-5.png)
 
-Voici le resultat de l'eexécution
+Voici le resultat de l'exécution
 ![alt text](image-6.png)
 
 Voici le resultat final, celuyi qui permet à nos utilisateurs de se connecter via le web
-![alt text](<Capture d'écran 2025-10-24 094029.png>)
+
+![alt text](image-7.png)
